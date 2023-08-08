@@ -1,0 +1,46 @@
+// Breakpoints
+@media (min-width: 64em){
+    // styles go here
+}
+  
+  // 640px, 1024px, 1400px
+$breakpoints-up: ("medium": "640px", "large": "1024px", "xlarge": "1440px");
+  
+  // 639px, 1023px, 1399px
+$breakpoints-down: ("small": "639px", "medium": "1023px", "large": "1439px");
+  
+@mixin breakpoint-up($size){
+    @media (min-width: map-get($breakpoints-up, $size)){
+      @content;
+    }
+}
+  
+@mixin breakpoint-down($size){
+    @media (max-width: map-get($breakpoints-down, $size)){
+      @content;
+    }
+}
+
+// // Other
+
+// @mixin home-section-skeleton {
+//   position: relative;
+//   display: flex;
+//   flex-flow: column nowrap;
+//   align-items: flex-start;
+//   justify-content: flex-start;
+//   height: 320px;
+//   margin-top: 64px;
+//   @include breakpoint-up(medium){
+//       height: 425px;
+//   }
+//   &:before{
+//       content: '';
+//   }
+//   h2{
+//       margin: 8px auto 16px 0;
+//       @include breakpoint-up(medium){
+//           margin: 16px auto 32px 0;
+//       }
+//   }
+// }
